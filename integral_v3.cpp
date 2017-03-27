@@ -2,9 +2,9 @@
 #include <math.h>
 #include <assert.h>
 
-float calculation(int m, float x1, float x2)
+float func_calculation(int m, float x1, float x2)
 {
-    assert (m >= 5);
+//    assert (m >= 5);
     float sum1 = 0;
     float sum2 = 0;
     float g;
@@ -16,13 +16,28 @@ float calculation(int m, float x1, float x2)
     }
 
     g = - sum1 * sum2;
-    std::cout << "Result for f(" << x1 << ", " << x2 << ") and m=" << m << " : " << g << "\n";
+    std::cout << "Result for f(" << x1 << ", " << x2 << ") and m=" << m << " : " << g << std::endl;
     return g;
 }
 
-/*int main()
+float integration(int n, int m, float a, float b)
 {
-    calculation(5,1,2);
-    return 0;
-}*/
+    assert (m >= 5);
+    float sum = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        float x1 = a + (b - a) * i / n;
+        float x2 = a + (b - a) * (i + 1) / n;
+        sum += func_calculation(m, x1, x2);
+    }
+    std::cout << "Result: " << sum << std::endl;
 
+    return sum;
+
+}
+
+int main()
+{
+    integration(100, 5, 1, 5);
+    return 0;
+}
