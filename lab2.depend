@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1446671344 source:d:\comparch\lab2\main.cpp
+	<iostream>
+
+1490623337 source:d:\comparch\lab2\integral_v3.cpp
+	<iostream>
+	<math.h>
+	<assert.h>
+
+1490624069 source:d:\comparch\lab2\dictionary.cpp
+	<fstream>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<map>
+	<algorithm>
+
