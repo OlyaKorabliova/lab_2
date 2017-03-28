@@ -75,8 +75,8 @@ int main()
     for (int i = 0; i < num_of_threads; ++i)
     {
         threads[i] = thread(integration, x_start, x_start + x_step, y_start, y_start + y_step, m, pr);
-        x_start += x_step;
-        y_start += y_step;
+        x_start += x_step + 1;
+        y_start += y_step + 1;
     }
     for (int i = 0; i < num_of_threads; ++i)
     {
