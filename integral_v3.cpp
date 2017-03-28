@@ -83,8 +83,8 @@ int main()
         threads[i].join();
     }
 
-    std::cout << "----------------\n";
-    integration(0, 1, 0, 1, 5, 0.05);
+//    std::cout << "----------------\n";
+//    integration(0, 1, 0, 1, 5, 0.05);
 
     return 0;
 }
