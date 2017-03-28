@@ -71,16 +71,18 @@ int main()
     float y_start = y0;
 //    float y_end = y_start + y_step;
 
-
-    for (int i = 0; i < num_of_threads; ++i)
+    int i = 0;
+//    for (int i = 0; i < num_of_threads; ++i)
+    while (x_start < x && y_start < y && i < num_of_threads)
     {
         threads[i] = thread(integration, x_start, x_start + x_step, y_start, y_start + y_step, m, pr);
-        x_start += x_step + 1;
-        y_start += y_step + 1;
+        ++i;
+        x_start += x_step;
+        y_start += y_step;
     }
-    for (int i = 0; i < num_of_threads; ++i)
+    for (int j = 0; j < num_of_threads; ++j)
     {
-        threads[i].join();
+        threads[j].join();
     }
 
 //    std::cout << "----------------\n";
