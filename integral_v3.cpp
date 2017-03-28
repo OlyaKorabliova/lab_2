@@ -64,11 +64,11 @@ int main()
     float pr = 0.05;
 
     float x_step = (x - x0) / (pr * num_of_threads);
-    float x_start = 0;
+    float x_start = x0;
 //    float x_end = x_start + x_step;
 
     float y_step = (y - y0) / (pr * num_of_threads);
-    float y_start = 0;
+    float y_start = y0;
 //    float y_end = y_start + y_step;
 
 
