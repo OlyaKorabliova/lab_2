@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <mutex>
 #include <thread>
+using namespace std;
 
 mutex mx;
 
@@ -49,7 +50,7 @@ float integration(float x0, float x, float y0, float y, int m, float pr)
 
 int main()
 {
-
+    int num_of_threads;
     std::cout << "Please enter the number of threads: " << std::endl;
     std::cin >> num_of_threads;
 
@@ -81,6 +82,9 @@ int main()
     {
         threads[i].join();
     }
+
+    std::cout << "----------------\n";
+    integration(0, 1, 0, 1, 5, 0.05);
 
     return 0;
 }
