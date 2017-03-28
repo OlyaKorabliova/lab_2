@@ -1,10 +1,11 @@
 #include <iostream>
 #include <math.h>
 #include <assert.h>
+//#include <mutex>
+//#include <thread>
 
 float func_calculation(int m, float x1, float x2)
 {
-//    assert (m >= 5);
     float sum1 = 0;
     float sum2 = 0;
     float g;
@@ -20,15 +21,21 @@ float func_calculation(int m, float x1, float x2)
     return g;
 }
 
-float integration(int n, int m, float a, float b)
+float integration(float x0, float x, float y0, float y, int m, float pr)
 {
     assert (m >= 5);
     float sum = 0;
-    for (int i = 0; i < n; ++i)
+    float x_i = x0;
+    while (x_i < x)
     {
-        float x1 = a + (b - a) * i / n;
-        float x2 = a + (b - a) * (i + 1) / n;
-        sum += func_calculation(m, x1, x2);
+        float y_i = y0;
+        while (y_i < y)
+        {
+            sum += func_calculation(m, x_i + pr / 2.0, y_i + pr / 2.0) * pow(pr, 2.0);
+            y_i += pr;
+        }
+        x_i += pr;
+
     }
     std::cout << "Result: " << sum << std::endl;
 
@@ -38,6 +45,6 @@ float integration(int n, int m, float a, float b)
 
 int main()
 {
-    integration(100, 5, 1, 5);
+    integration(0, 1, 0, 1, 5, 0.005);
     return 0;
 }
